@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My First JavaScript</h2>
+
+<button onclick="findLowestPositions()">Click me</button><br><br>
+
+<button id="myButton">Click me Now</button>
+
+
+
+
+
+<p id="demo"></p>
+
+<label id="labelName">Label1</label><br><br>
+<label id="labelName2">Label2</label><br><br>
+<label id="labelName3">Label3</label><br><br>
+<label id="labelName4">Label4</label><br><br>
+<label id="labelName5">Label5</label><br><br>
+
+<script>
+
+
+function findLowestPositions(array) {
+  // Find the minimum value in the array
+  
+  var minValue = Math.min(...array);
+
+  // Create an array to store the positions of the minimum value
+  var minPositions = [];
+
+  // Loop through the array and find the positions of the minimum value
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === minValue) {
+      minPositions.push(i);
+    }
+  }
+
+  // Return the array of positions
+  return minPositions;
+}
+
+
+var array = [1, 2, 3, 2, 1,1,7,8,1];
+var minPositions = findLowestPositions(array);
+//'labelName' is an ID assign to show the Result in html label
+document.getElementById('labelName').innerHTML = minPositions;
+
+
+
+
+// addition of a number to each element of an array
+    
+    function sumToArray(minPositions, number) {
+  return minPositions.map(x => x + number);
+}
+var number = 1;
+var result = sumToArray(minPositions, number);
+
+document.getElementById('labelName2').innerHTML = result;
+
+
+
+//get a random number from an array
+
+function getRandomNumber(result) {
+
+  var index = Math.floor(Math.random() * result.length);
+  return result[index];
+}
+var randomNumber = getRandomNumber(result);
+
+if(randomNumber == 10){
+	document.getElementById('labelName3').innerHTML = 0;
+}
+else{
+document.getElementById('labelName3').innerHTML = randomNumber;
+}
+
+if(randomNumber == 1 || randomNumber == 3 || randomNumber == 7 || randomNumber == 9){
+	document.getElementById('labelName4').innerHTML = 'RED';
+}
+else if(randomNumber == 2 || randomNumber == 4 || randomNumber == 6 || randomNumber == 8){
+	document.getElementById('labelName4').innerHTML = 'GREEN';
+} 
+else if(randomNumber == 0 || randomNumber == 5){
+	document.getElementById('labelName4').innerHTML = 'VIOLET';
+} 
+else if(randomNumber == 10){
+	document.getElementById('labelName4').innerHTML = 'VIOLET';
+} 
+
+document.getElementById("myButton").onclick = function() {
+    //alert("Button was clicked");
+    function getRandomNumber(result) {
+
+  var index = Math.floor(Math.random() * result.length);
+  return result[index];
+}
+var randomNumber = getRandomNumber(result);
+
+if(randomNumber == 10){
+	document.getElementById('labelName3').innerHTML = 0;
+}
+else{
+document.getElementById('labelName3').innerHTML = randomNumber;
+}
+
+if(randomNumber == 1 || randomNumber == 3 || randomNumber == 7 || randomNumber == 9){
+	document.getElementById('labelName4').innerHTML = 'RED';
+}
+else if(randomNumber == 2 || randomNumber == 4 || randomNumber == 6 || randomNumber == 8){
+	document.getElementById('labelName4').innerHTML = 'GREEN';
+} 
+else if(randomNumber == 0 || randomNumber == 5){
+	document.getElementById('labelName4').innerHTML = 'VIOLET';
+} 
+else if(randomNumber == 10){
+	document.getElementById('labelName4').innerHTML = 'VIOLET';
+} 
+};
+
+setInterval(getRandomNumber, 2000);
+</script>
+</body>
+</html> 
